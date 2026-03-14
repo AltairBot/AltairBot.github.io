@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Altair | The Ultimate Discord Automation Suite</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -22,7 +23,9 @@
             <a href="commands.html">Registry</a>
             <a href="premium.html">Pro</a>
         </div>
-        
+        <div class="menu-toggle" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
     </nav>
 
     <header class="hero container">
@@ -327,54 +330,36 @@
             <div style="text-align: center; margin-bottom: 80px;" class="reveal">
                 <h2 class="section-title">Why <span class="text-gradient">Altair?</span></h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
-                <div class="glass reveal"
-                    style="padding: 48px 32px; border-radius: var(--radius-md); text-align: center;">
+            <div class="bento-grid">
+                <div class="glass bento-item reveal span-4">
                     <div class="bento-icon" style="margin: 0 auto 24px;"><i class="fas fa-cubes"></i></div>
-                    <h3 style="margin-bottom: 16px; font-size: 1.3rem;">One App, Zero Compromises</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Stop paying for 5 different apps that
-                        barely work together. Altair handles moderation, XP, tickets, welcome, autorole, and 8 Pro
-                        modules, all from a single integration.</p>
+                    <h3>One App, Zero Compromises</h3>
+                    <p>Stop paying for 5 different apps that barely work together. Altair handles moderation, XP, tickets, welcome, autorole, and 8 Pro modules, all from a single integration.</p>
                 </div>
-                <div class="glass reveal"
-                    style="padding: 48px 32px; border-radius: var(--radius-md); text-align: center;">
+                <div class="glass bento-item reveal span-4">
                     <div class="bento-icon" style="margin: 0 auto 24px;"><i class="fas fa-expand"></i></div>
-                    <h3 style="margin-bottom: 16px; font-size: 1.3rem;">Built for Scale</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Anti-raid thresholds adapt to your member
-                        count. Whether you have 100 members or 100,000, you get the same precision with zero false
-                        positives. Built for
-                        communities that never stop growing.</p>
+                    <h3>Built for Scale</h3>
+                    <p>Anti-raid thresholds adapt to your member count. Whether you have 100 members or 100,000, you get the same precision with zero false positives. Built for communities that never stop growing.</p>
                 </div>
-                <div class="glass reveal"
-                    style="padding: 48px 32px; border-radius: var(--radius-md); text-align: center;">
+                <div class="glass bento-item reveal span-4">
                     <div class="bento-icon" style="margin: 0 auto 24px;"><i class="fas fa-sliders"></i></div>
-                    <h3 style="margin-bottom: 16px; font-size: 1.3rem;">Total Control</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Every module is configurable per-guild.
-                        Ignored channels, custom thresholds, test modes, and whitelists. Your server, your rules. We
-                        just enforce them.</p>
+                    <h3>Total Control</h3>
+                    <p>Every module is configurable per-guild. Ignored channels, custom thresholds, test modes, and whitelists. Your server, your rules. We just enforce them.</p>
                 </div>
-                <div class="glass reveal"
-                    style="padding: 48px 32px; border-radius: var(--radius-md); text-align: center;">
+                <div class="glass bento-item reveal span-4">
                     <div class="bento-icon" style="margin: 0 auto 24px;"><i class="fas fa-signal"></i></div>
-                    <h3 style="margin-bottom: 16px; font-size: 1.3rem;">Always Online</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">99.9% uptime SLA backed by redundant
-                        infrastructure. Altair doesn't sleep, doesn't lag, and doesn't go offline when you need it most.
-                    </p>
+                    <h3>Always Online</h3>
+                    <p>99.9% uptime SLA backed by redundant infrastructure. Altair doesn't sleep, doesn't lag, and doesn't go offline when you need it most.</p>
                 </div>
-                <div class="glass reveal"
-                    style="padding: 48px 32px; border-radius: var(--radius-md); text-align: center;">
+                <div class="glass bento-item reveal span-4">
                     <div class="bento-icon" style="margin: 0 auto 24px;"><i class="fas fa-eye-slash"></i></div>
-                    <h3 style="margin-bottom: 16px; font-size: 1.3rem;">Privacy First</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">No message logging, no data selling, no
-                        shady tracking. Altair processes commands and forgets. Your server data stays yours.</p>
+                    <h3>Privacy First</h3>
+                    <p>No message logging, no data selling, no shady tracking. Altair processes commands and forgets. Your server data stays yours.</p>
                 </div>
-                <div class="glass reveal"
-                    style="padding: 48px 32px; border-radius: var(--radius-md); text-align: center;">
+                <div class="glass bento-item reveal span-4">
                     <div class="bento-icon" style="margin: 0 auto 24px;"><i class="fas fa-heart"></i></div>
-                    <h3 style="margin-bottom: 16px; font-size: 1.3rem;">8 Years Strong</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Not a startup, not a cash grab. Altair
-                        has been actively developed and maintained for 8 years by a solo dev who actually uses it every
-                        day.</p>
+                    <h3>8 Years Strong</h3>
+                    <p>Not a startup, not a cash grab. Altair has been actively developed and maintained for 8 years by a solo dev who actually uses it every day.</p>
                 </div>
             </div>
 
@@ -412,30 +397,29 @@
                 <p class="hero-subtitle">Why industry leaders are migrating their entire infrastructure to Altair.</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
-                <div class="glass reveal" style="padding: 40px;">
+            <div class="bento-grid">
+                <div class="glass bento-item reveal span-6">
                     <div class="hud-label" style="margin-bottom: 16px;">01 &mdash; UNIFIED INTELLIGENCE</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Kill the Dashboard Fatigue</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.6;">Stop managing 5 different apps that barely talk to each other. Altair handles moderation, economy, tickets, and security from a single, unified integration. One app. One database. Zero friction.</p>
+                    <h3>Kill the Dashboard Fatigue</h3>
+                    <p>Stop managing 5 different apps that barely talk to each other. Altair handles moderation, economy, tickets, and security from a single, unified integration. One app. One database. Zero friction.</p>
                 </div>
                 
-                <div class="glass reveal" style="padding: 40px;">
+                <div class="glass bento-item reveal span-6">
                     <div class="hud-label" style="margin-bottom: 16px;">02 &mdash; NO-LAG INFRASTRUCTURE</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 12px;">SQLite WAL Architecture</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.6;">While other bots go offline during API spikes, Altair’s Write-Ahead Logging ensures zero transaction loss. Engineered for speed, stability, and scale with 99.9% uptime guaranteed.</p>
+                    <h3>SQLite WAL Architecture</h3>
+                    <p>While other bots go offline during API spikes, Altair’s Write-Ahead Logging ensures zero transaction loss. Engineered for speed, stability, and scale with 99.9% uptime guaranteed.</p>
                 </div>
                 
-                <div class="glass reveal" style="padding: 40px;">
+                <div class="glass bento-item reveal span-6">
                     <div class="hud-label" style="margin-bottom: 16px;">03 &mdash; TRUE PRO VALUE</div>
-                    <div class="bento-icon" style="position: absolute; top: 40px; right: 40px; margin: 0; width: 40px; height: 40px; font-size: 1rem;"><i class="fas fa-gem"></i></div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Actual Pro Features</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.6;">We don't gate basic functionality. Our Pro tier provides high-end tools like Global Phishing Databases, SQL Transcripts, and Voice XP—features that actually help your server grow.</p>
+                    <h3>Actual Pro Features</h3>
+                    <p>We don't gate basic functionality. Our Pro tier provides high-end tools like Global Phishing Databases, SQL Transcripts, and Voice XP—features that actually help your server grow.</p>
                 </div>
                 
-                <div class="glass reveal" style="padding: 40px;">
+                <div class="glass bento-item reveal span-6">
                     <div class="hud-label" style="margin-bottom: 16px;">04 &mdash; DEVELOPER DNA</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Against the "Free-then-Fee"</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.6;">Altair was born out of frustration with bait-and-switch app pricing. We believe the core tools to keep a community safe should always be accessible. Built by a dev, for the community.</p>
+                    <h3>Against the "Free-then-Fee"</h3>
+                    <p>Altair was born out of frustration with bait-and-switch app pricing. We believe the core tools to keep a community safe should always be accessible. Built by a dev, for the community.</p>
                 </div>
             </div>
         </section>
@@ -496,16 +480,14 @@
     </footer>
 
     <!-- Fixed Floating Status Bar -->
-    <div class="status-strip">
-        <span style="display: flex; align-items: center;"><span class="status-dot"></span>SYS_OPERATIONAL</span>
-        <span class="status-optional">|</span>
-        <span class="status-optional">SSL_ENCRYPTED</span>
-        <span class="status-optional">|</span>
-        <span class="status-optional">AUTH_V2.0</span>
-        <span>BUILD 1.1.0</span>
     </div>
 
-    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="glass">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/auth.js"></script>
     <script>
         // Progressive Nav Scroll Logic
         const nav = document.getElementById('navbar');
@@ -534,16 +516,7 @@
             });
         }
 
-        // Entrance animation observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Back to Top and Reveal logic now handled by Auth in auth.js
     </script>
 </body>
 

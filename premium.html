@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium | Altair</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://js.stripe.com/v3/"></script>
 </head>
@@ -23,7 +24,9 @@
             <a href="commands.html">Registry</a>
             <a href="premium.html" class="active">Pro</a>
         </div>
-        
+        <div class="menu-toggle" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
     </nav>
 
     <header class="hero container" style="min-height: 50vh;">
@@ -34,10 +37,10 @@
 
     <main class="container">
         <section class="section-padding" style="padding-top: 40px;">
-            <div class="bento-grid" style="justify-content: center; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            <div class="bento-grid">
 
                 <!-- Free Tier -->
-                <div class="glass bento-item reveal" style="padding: 60px 40px; display: flex; flex-direction: column;">
+                <div class="glass bento-item span-4 reveal" style="padding: 60px 40px; display: flex; flex-direction: column;">
                     <h3 class="section-title">Free <span class="text-gradient">Tier</span></h3>
                     <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">Perfect for starting
                         out</p>
@@ -66,7 +69,7 @@
                 </div>
 
                 <!-- Pro Monthly -->
-                <div class="glass bento-item reveal"
+                <div class="glass bento-item span-4 reveal"
                     style="padding: 60px 40px; display: flex; flex-direction: column; position: relative; border-color: var(--green-dim);">
                     <div class="hud-label" style="position: absolute; top: 20px; left: 40px; color: var(--green); font-size: 0.7rem;">MOST_POPULAR</div>
                     <h3 class="section-title">Altair <span class="text-green">Pro</span></h3>
@@ -93,7 +96,7 @@
                 </div>
 
                 <!-- Pro Annual -->
-                <div class="glass bento-item reveal"
+                <div class="glass bento-item span-4 reveal"
                     style="padding: 60px 40px; display: flex; flex-direction: column; border-color: rgba(200,255,0,0.3); background: linear-gradient(135deg, rgba(200,255,0,0.02) 0%, rgba(200,255,0,0.08) 100%); position: relative;">
                     <div
                         style="position: absolute; top: 24px; right: 24px; background: var(--green); color: #000; padding: 4px 14px; border-radius: 100px; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;">
@@ -144,24 +147,21 @@
     </footer>
 
     <!-- Fixed Floating Status Bar -->
-    <div class="status-strip">
-        <span style="display: flex; align-items: center;"><span class="status-dot"></span>SYS_OPERATIONAL</span>
-        <span class="status-optional">|</span>
-        <span class="status-optional">SSL_ENCRYPTED</span>
-        <span class="status-optional">|</span>
-        <span class="status-optional">AUTH_V2.0</span>
-        <span>BUILD 1.1.0</span>
     </div>
 
-    
-    <script>
-        // Entrance animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="glass">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    <script src="js/auth.js"></script>
+    <script>
+        // Back to Top and Reveal logic now handled by Auth in auth.js
     </script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="glass">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 </body>
 
 </html>
