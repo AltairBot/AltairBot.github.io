@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Altair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .doc-section {
+            margin-bottom: 3rem;
+        }
+
+        .doc-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .doc-cmd {
+            padding: 1.5rem 2rem;
+            margin-bottom: 12px;
+        }
+
+        .doc-cmd h4 {
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .doc-cmd p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-cmd .doc-perm {
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: var(--accent-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .doc-nav {
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            /* Use padding to keep content away from the edge */
+            padding-right: 5px;
+        }
+
+        /* Prevent scrollbar from clipping through rounded corners */
+        .doc-nav::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .doc-nav::-webkit-scrollbar-track {
+            background: transparent;
+            /* Add margin to track to respect rounded corners */
+            margin: 10px 0;
+        }
+
+        .doc-nav::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            /* Add a transparent border and use background-clip to create "padding" around the thumb */
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        .doc-nav::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+            background-clip: content-box;
+        }
+
+        .doc-nav a {
+            display: block;
+            padding: 8px 15px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border-left: 2px solid transparent;
+        }
+
+        .doc-nav a:hover {
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <div class="logo-box"><img src="img/altair_logo_v5.png" alt="Altair"
+                    style="width:100%;height:100%;object-fit:cover;"></div>
+            Altair
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="features.html">Systems</a>
+            <a href="commands.html">Registry</a>
+            <a href="premium.html">Pro</a>
+        </div>
+        
+    </nav>
+
+    <header class="hero container" style="min-height: 50vh;">
+        <div class="hud-label reveal" style="margin-bottom: 2rem;">KNOWLEDGE_BASE</div>
+        <h1 class="hero-title reveal">System <span class="text-gradient">Documentation.</span></h1>
+        <p class="hero-subtitle reveal">Complete reference for all Altair modules and commands.</p>
+    </header>
+
+    <main class="container" style="padding-bottom: 100px;">
+        <div style="display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start;">
+            <!-- Sidebar Nav -->
+            <aside class="doc-nav glass reveal" style="padding: 1.5rem;">
+                <p class="cyber-tag" style="margin-bottom: 1rem; padding-left: 15px;">SECTIONS</p>
+                <a href="#moderation">Moderation</a>
+                <a href="#automod">AutoMod</a>
+                <a href="#tickets">Tickets</a>
+                <a href="#levels">Levels & XP</a>
+                <a href="#economy">Economy & Gambling</a>
+                <a href="#shop">Server Shop</a>
+                <a href="#reactionroles">Reaction Roles</a>
+                <a href="#autoroles">Autoroles</a>
+                <a href="#welcome">Welcome</a>
+                <a href="#utility">Utility</a>
+                <a href="#info">Info</a>
+                <a href="#customcmds">Custom Commands</a>
+                <a href="#starboard">Starboard</a>
+                <a href="#giveaways">Giveaways</a>
+                <p class="cyber-tag" style="margin: 1rem 0 0.5rem; padding-left: 15px; color: var(--green);">PRO MODULES
+                </p>
+                <a href="#analytics">Server Analytics</a>
+                <a href="#promod-antiraid">Anti-Raid</a>
+                <a href="#promod-phishing">Phishing Detection</a>
+                <a href="#promod-duplicates">Duplicate Detection</a>
+                <a href="#promod-accountgate">Account Gating</a>
+                <a href="#promod-slowmode">Auto-Slowmode</a>
+                <a href="#promod-attachments">Attachment Filtering</a>
+                <a href="#promod-regex">Regex Filters</a>
+                <a href="#promod-autopurge">Auto-Purge</a>
+                <a href="#premium">Premium Management</a>
+            </aside>
+
+            <!-- Content -->
+            <div>
+                <!-- MODERATION -->
+                <section class="doc-section reveal" id="moderation">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.01</p>
+                    <h2><span class="text-gradient">Moderation</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Core moderation tools for server
+                        administrators. All commands require Administrator permission.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/ban &lt;user&gt; [reason]</h4>
+                        <p>Permanently ban a user from your server. Provides a DM notification to the banned user with
+                            the reason.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/kick &lt;user&gt; [reason]</h4>
+                        <p>Kick a user from the server. They can rejoin with a new invite link.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/clear &lt;amount&gt;</h4>
+                        <p>Bulk delete messages in the current channel. Supports up to 100 messages at a time.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- AUTOMOD -->
+                <section class="doc-section reveal" id="automod">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.02</p>
+                    <h2><span class="text-gradient">AutoMod System</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Intelligent automated moderation that
+                        runs 24/7. Configurable filters for profanity, spam, links, and invites with customizable
+                        thresholds and actions.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/automod setup &lt;log&gt; &lt;mod&gt; [dev]</h4>
+                        <p>Initialize the AutoMod system. Set the log channel for violations, mod channel for alerts,
+                            and optional dev config channel.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod profanity &lt;enabled&gt; [level]</h4>
+                        <p>Toggle the profanity filter on or off. Set sensitivity level to Low, Medium, or High.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod spam &lt;enabled&gt; [max_messages] [timeframe]</h4>
+                        <p>Configure anti-spam. Set how many messages within a timeframe trigger a violation. Includes
+                            invite blocking.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod links &lt;enabled&gt; [mode]</h4>
+                        <p>Control link sharing. Modes: Whitelist (allow only approved domains) or Block All.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod actions [warn] [timeout] [kick] [ban]</h4>
+                        <p>Enable or disable specific punishment actions when violations are detected.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod thresholds [warn] [timeout] [kick] [ban] [duration]</h4>
+                        <p>Set strike thresholds before each action triggers. Example: 3 warnings → timeout, 5 → kick.
+                        </p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod add &lt;type&gt; &lt;value&gt;</h4>
+                        <p>Add items to filter lists. Types: custom word, whitelisted domain, ignored channel, ignored
+                            role.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod remove &lt;type&gt; &lt;value&gt;</h4>
+                        <p>Remove items from filter lists.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod user &lt;user&gt;</h4>
+                        <p>View a user's strike history and violation report.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod reset &lt;user&gt;</h4>
+                        <p>Reset all strikes and warnings for a specific user.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/automod stats</h4>
+                        <p>View overall AutoMod statistics including total violations, most active filters, and recent
+                            activity.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- TICKETS -->
+                <section class="doc-section reveal" id="tickets">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.03</p>
+                    <h2><span class="text-gradient">Ticket System</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Complete support ticket system with
+                        multi-role support, category management, and ticket lifecycle controls.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/tickets setup &lt;channel&gt; [roles...] [title] [description]</h4>
+                        <p>Create a ticket panel in the specified channel. Supports up to 4 support roles and 2 admin
+                            roles for multi-tier support.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/tickets roles [support_1..4] [admin_1..2]</h4>
+                        <p>Edit ticket roles without recreating the panel. Assign which roles get access to new tickets.
+                        </p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/tickets categories [active] [closed]</h4>
+                        <p>Set Discord channel categories for open and closed tickets to keep your server organized.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/tickets close [ticket_id]</h4>
+                        <p>Force close a ticket. Generates a transcript and moves it to the closed category.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- LEVELS -->
+                <section class="doc-section reveal" id="levels">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.04</p>
+                    <h2><span class="text-gradient">Levels & XP</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Engagement-driven leveling system with
+                        rank cards, leaderboards, and role rewards. Free tier includes core features; Pro unlocks
+                        advanced customization.</p>
+
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--text-muted);">FREE</p>
+                    <div class="doc-cmd glass">
+                        <h4>/level rank [user]</h4>
+                        <p>View your rank card or another user's. Displays level, XP progress, and server ranking.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level leaderboard</h4>
+                        <p>View the server's top 10 XP leaderboard.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level rewards add &lt;role&gt; &lt;level&gt;</h4>
+                        <p>Assign a role reward for reaching a level. Free: up to 5 rewards. Pro: unlimited.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level rewards remove &lt;level&gt;</h4>
+                        <p>Remove a role reward from a specific level.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level rewards list</h4>
+                        <p>View all configured level rewards for this server.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level config [enabled] [announce] [stack-roles]</h4>
+                        <p>Basic configuration: enable/disable the system, toggle level-up announcements, and set role
+                            stacking.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level set &lt;user&gt; &lt;level&gt;</h4>
+                        <p>Manually set a user's level.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/level reset &lt;user&gt;</h4>
+                        <p>Reset a user's XP and level progress entirely.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+
+                    <p class="cyber-tag" style="margin: 1.5rem 0 0.5rem; color: var(--green);">⭐ PRO ONLY</p>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/level leaderboard [page]</h4>
+                        <p>Browse unlimited leaderboard pages beyond the top 10 (up to 100 users).</p>
+                        <span class="doc-perm">REQUIRES: PRO</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/level config [cooldown] [channel] [min-xp] [max-xp] [formula]</h4>
+                        <p>Advanced configuration: custom XP cooldown, dedicated level-up channel, custom XP range per
+                            message, and formula selection (exponential or linear).</p>
+                        <span class="doc-perm">REQUIRES: PRO + ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- ECONOMY -->
+                <section class="doc-section reveal" id="economy">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.05</p>
+                    <h2><span class="text-gradient">Economy & Gambling</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">A robust persistent currency system (Orbs ○). Members earn Orbs through activity, dailies, and can risk them in games of chance.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/economy balance [user]</h4>
+                        <p>Check your current Orb balance or view another user's bank status.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/economy daily</h4>
+                        <p>Claim your daily allotment of Orbs. Pro servers receive a 1.5x - 2x multiplier on all claims.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/economy leaderboard</h4>
+                        <p>View the wealthiest members in the server. Displays the top 10 users by default.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/gamble slots &lt;bet&gt;</h4>
+                        <p>Play the slot machine. Match 2 symbols to win 2x, or 3 symbols for up to 10x your bet.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/gamble coinflip &lt;choice&gt; &lt;bet&gt;</h4>
+                        <p>Double or nothing. Bet on Heads or Tails for a 50/50 chance to win.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/economy admin give &lt;user&gt; &lt;amount&gt;</h4>
+                        <p>Add Orbs to a user's balance. Useful for event rewards or manual corrections.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                </section>
+
+                <!-- SHOP -->
+                <section class="doc-section reveal" id="shop">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.06</p>
+                    <h2><span class="text-gradient">Server Shop</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Monetize your server engagement. Let users spend their Orbs on exclusive roles, permanent status items, and more.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/shop list</h4>
+                        <p>View all items currently available for purchase in the server shop.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/shop buy &lt;id&gt;</h4>
+                        <p>Purchase an item using your Orbs. Roles are assigned immediately upon purchase.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                </section>
+
+                <!-- REACTION ROLES -->
+                <section class="doc-section reveal" id="reactionroles">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.07</p>
+                    <h2><span class="text-gradient">Reaction Roles</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Create interactive, button-based role assignment panels. Organize your server with self-assignable roles for interests, notifications, and more.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/rr create &lt;channel&gt; &lt;mode&gt; [title] [description] [color]</h4>
+                        <p>Initialize a new panel. Modes: Normal (toggle), AddOnly, Unique (one per panel), or Verify (permanent).</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/rr add &lt;message_id&gt; &lt;role&gt; &lt;label&gt; [emoji] [style]</h4>
+                        <p>Add a button to an existing panel. Message ID can be found by right-clicking the panel message.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/rr edit &lt;message_id&gt; [title] [description] [color] [mode]</h4>
+                        <p>Update the appearance or behavior of a panel without recreating it.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/rr list</h4>
+                        <p>Displays all active reaction role panels in the current server with their IDs and configuration.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- AUTOROLES -->
+                <section class="doc-section reveal" id="autoroles">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.08</p>
+                    <h2><span class="text-gradient">Autoroles</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Automatically assign roles to new
+                        members when they join your server.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/autorole &lt;subcommand&gt;</h4>
+                        <p>Configure autorole settings. Add or remove roles that are automatically assigned to new
+                            members on join.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- WELCOME -->
+                <section class="doc-section reveal" id="welcome">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.09</p>
+                    <h2><span class="text-gradient">Welcome System</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Greet new members with customizable
+                        welcome messages and channel configuration.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/welcome &lt;subcommand&gt;</h4>
+                        <p>Configure welcome messages, set the welcome channel, customize the greeting text, and toggle
+                            the system on or off.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                </section>
+
+                <!-- UTILITY -->
+                <section class="doc-section reveal" id="utility">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.10</p>
+                    <h2><span class="text-gradient">Utility</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Handy tools for everyday server
+                        management and fun.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/avatar [user]</h4>
+                        <p>Display a user's avatar in full resolution. Defaults to your own if no user specified.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/servericon</h4>
+                        <p>Display the server's icon in full resolution.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/serverbanner</h4>
+                        <p>Display the server's banner image in full resolution.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/say &lt;message&gt;</h4>
+                        <p>Make the bot send a message as itself. Useful for announcements.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/emojisize &lt;emoji&gt;</h4>
+                        <p>Enlarge a custom emoji so you can see it in full detail.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/bug &lt;description&gt;</h4>
+                        <p>Report a bug directly to the bot developers. Your report is sent to the dev team.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/changelog</h4>
+                        <p>View the latest changes and updates to Altair.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                </section>
+
+                <!-- INFO -->
+                <section class="doc-section reveal" id="info">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.11</p>
+                    <h2><span class="text-gradient">Info</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">System information and diagnostics.
+                    </p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/help</h4>
+                        <p>View a quick summary of all available command categories.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/ping</h4>
+                        <p>Check the bot's response latency and API ping.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/servers</h4>
+                        <p>View how many servers Altair is currently active in.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/serverinfo</h4>
+                        <p>Detailed information about the current server including member count, boost level, creation
+                            date, and more.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/privacy</h4>
+                        <p>View the full privacy policy, request your data, or submit a deletion request.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/profile [user]</h4>
+                        <p>View a user's Altair profile including level, badges, and server activity.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                </section>
+
+                <!-- CUSTOM COMMANDS -->
+                <section class="doc-section reveal" id="customcmds">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.12</p>
+                    <h2><span class="text-gradient">Custom Commands</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Create custom trigger-based commands
+                        for your server. Free: up to 5 text commands. Pro: up to 30 with embeds, variables, and
+                        role actions.</p>
+
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--text-muted);">FREE</p>
+                    <div class="doc-cmd glass">
+                        <h4>/customcmd create &lt;name&gt; &lt;trigger&gt; &lt;response&gt;</h4>
+                        <p>Create a text command. Trigger must start with a prefix like <code>!</code> <code>?</code>
+                            <code>.</code> — e.g. <code>!rules</code>.
+                        </p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/customcmd list</h4>
+                        <p>List all custom commands with their triggers and features.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/customcmd delete &lt;name&gt;</h4>
+                        <p>Delete a custom command.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+
+                    <p class="cyber-tag" style="margin: 1.5rem 0 0.5rem; color: var(--green);">⭐ PRO ONLY</p>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/customcmd embed &lt;name&gt; [title] [description] [color] [footer] [thumbnail] [image]
+                        </h4>
+                        <p>Add a rich embed to your command. Variables are supported in all text fields.</p>
+                        <span class="doc-perm">REQUIRES: PRO + MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/customcmd restrict &lt;name&gt; [role] [channel] [clear]</h4>
+                        <p>Restrict who can use a command by role or which channels it works in.</p>
+                        <span class="doc-perm">REQUIRES: PRO + MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/customcmd action &lt;name&gt; [add-role] [remove-role] [clear]</h4>
+                        <p>Give or remove a role automatically when the command is triggered.</p>
+                        <span class="doc-perm">REQUIRES: PRO + MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/customcmd variables</h4>
+                        <p>View all available placeholders: <code>{user}</code>, <code>{server}</code>,
+                            <code>{membercount}</code>, <code>{channel}</code>, <code>{date}</code>,
+                            <code>{time}</code>, and more.
+                        </p>
+                        <span class="doc-perm">REQUIRES: PRO</span>
+                    </div>
+                </section>
+
+                <!-- STARBOARD -->
+                <section class="doc-section reveal" id="starboard">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.13</p>
+                    <h2><span class="text-gradient">Starboard</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">A community-curated "best of"
+                        channel. When a message gets enough star reactions, it's automatically reposted to a starboard
+                        channel with the content, images, and a jump link.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/starboard setup &lt;channel&gt;</h4>
+                        <p>Set the starboard channel and enable the system. All starred messages will appear here.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/starboard config [emoji] [threshold] [self-star] [allow-nsfw]</h4>
+                        <p>Customize the star emoji (default: ⭐), minimum stars needed (default: 3), whether users
+                            can star their own messages, and NSFW filtering. Run without options to view current
+                            settings.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/starboard ignore [channel] [role] [clear]</h4>
+                        <p>Block specific channels or roles from appearing on the starboard. Use <code>clear:True</code>
+                            to reset all ignores. Toggles on/off per channel/role.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/starboard disable</h4>
+                        <p>Turn off the starboard. Use <code>/starboard setup</code> to re-enable.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/starboard stats</h4>
+                        <p>View starboard statistics: total posts, current threshold, and active status.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                </section>
+
+                <!-- GIVEAWAYS -->
+                <section class="doc-section reveal" id="giveaways">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem;">.14</p>
+                    <h2><span class="text-gradient">Giveaways</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Run timed giveaways with button
+                        entry, automatic winner selection, and rerolls. Up to 5 active giveaways per server. Fully
+                        persistent — survives bot restarts.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/giveaway create &lt;prize&gt; &lt;duration&gt; [winners] [channel] [required-role]</h4>
+                        <p>Start a new giveaway. Duration supports <code>30m</code>, <code>1h</code>,
+                            <code>2d</code>, <code>1w</code>. Max 30 days, up to 20 winners. Optionally require a
+                            role to enter.
+                        </p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/giveaway end &lt;message-id&gt;</h4>
+                        <p>End a giveaway early and immediately pick winners.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/giveaway reroll &lt;message-id&gt; [count]</h4>
+                        <p>Pick new winner(s) from remaining entries for an ended giveaway.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/giveaway list</h4>
+                        <p>View all active giveaways with entries, winners, and time remaining.</p>
+                        <span class="doc-perm">REQUIRES: MANAGE_SERVER</span>
+                    </div>
+                </section>
+
+                <!-- PRO: SERVER ANALYTICS -->
+                <section class="doc-section reveal" id="analytics">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .15</p>
+                    <h2><span class="text-gradient">Server Analytics</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Real-time server activity tracking.
+                        Messages, member growth, channel activity, peak hours, and command usage — all with visual bar
+                        charts and sparklines. Data updates live and persists for 30 days.</p>
+
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/analytics overview [days]</h4>
+                        <p>Full activity summary: total messages, joins/leaves, active users, 24h activity sparkline,
+                            and top commands used.</p>
+                        <span class="doc-perm">REQUIRES: PRO</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/analytics channels [days]</h4>
+                        <p>Top 10 most active channels with visual bar charts showing message distribution.</p>
+                        <span class="doc-perm">REQUIRES: PRO</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/analytics members [days]</h4>
+                        <p>Top 10 most active members with medal rankings and activity bars.</p>
+                        <span class="doc-perm">REQUIRES: PRO</span>
+                    </div>
+                    <div class="doc-cmd glass" style="border-color: rgba(200,255,0,0.2);">
+                        <h4>/analytics growth [days]</h4>
+                        <p>Daily message volume and member join/leave trends with net growth tracking.</p>
+                        <span class="doc-perm">REQUIRES: PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - ANTI-RAID -->
+                <section class="doc-section reveal" id="promod-antiraid">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .16</p>
+                    <h2><span class="text-gradient">Anti-Raid</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Join flood detection with auto-scaling
+                        thresholds. Detects suspicious join patterns and triggers lockdown, kicks, and auto-unlock.
+                        Requires Altair Pro.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod antiraid &lt;enabled&gt; [threshold] [window] [lockdown] [kick] [autounlock]</h4>
+                        <p>Enable or configure anti-raid. Set the join threshold (0 = auto-scale based on server size),
+                            detection window in seconds (10-120, default 30), and choose actions: auto-lockdown, kick
+                            suspicious accounts, and auto-unlock after cooldown.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - PHISHING -->
+                <section class="doc-section reveal" id="promod-phishing">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .17</p>
+                    <h2><span class="text-gradient">Phishing Detection</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Scam and phishing link detection using
+                        a database of 36,000+ known malicious domains with lookalike domain analysis.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod phishing &lt;enabled&gt; [action] [lookalikes] [trust]</h4>
+                        <p>Enable phishing link scanning. Choose an action on detection: Delete + Warn, Delete Only, or
+                            Warn Only. Toggle lookalike domain detection (catches domains that look like discord.com,
+                            steam, etc). Add trusted domains that should never be flagged.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - DUPLICATES -->
+                <section class="doc-section reveal" id="promod-duplicates">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .18</p>
+                    <h2><span class="text-gradient">Duplicate Detection</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Detects repeated messages from the
+                        same or different users. Catches copypasta spam, raid messages, and repetitive content.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod duplicates &lt;enabled&gt; [window] [repeats] [crosschannel] [crossuser] [action]
+                        </h4>
+                        <p>Configure duplicate detection. Set the detection window (10-300s, default 60), max allowed
+                            repeats (2-10, default 3), and whether to detect across channels or users. Action choices:
+                            Delete + Warn, Warn Only, or Delete Only.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - ACCOUNT GATING -->
+                <section class="doc-section reveal" id="promod-accountgate">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .19</p>
+                    <h2><span class="text-gradient">Account Gating</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">New account filtering. Flag or
+                        restrict accounts that are too new, have no avatar, or look suspicious. Useful for preventing
+                        alt abuse.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod accountgate &lt;enabled&gt; [minage] [role] [action] [avatar]</h4>
+                        <p>Configure account gating. Set the minimum account age in days (1-365, default 7). Assign a
+                            quarantine role to restrict new accounts. Actions: Quarantine (restrict channels), Kick, or
+                            Alert Only. Optionally require an avatar.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - AUTO-SLOWMODE -->
+                <section class="doc-section reveal" id="promod-slowmode">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .20</p>
+                    <h2><span class="text-gradient">Auto-Slowmode</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Dynamic slowmode that activates
+                        automatically when chat activity spikes. Adapts in real-time with tiered thresholds (moderate,
+                        high, extreme) and lifts when things calm down.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod slowmode &lt;enabled&gt; [window] [cooldown] [ignore] [log]</h4>
+                        <p>Enable auto-slowmode. Set the monitoring window (5-60s, default 10), cooldown before removing
+                            slowmode (10-300s, default 30), add channels to the ignore list (like bot-command channels),
+                            and toggle logging of slowmode changes.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - ATTACHMENTS -->
+                <section class="doc-section reveal" id="promod-attachments">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .21</p>
+                    <h2><span class="text-gradient">Attachment Filtering</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Control file uploads in your server.
+                        Block dangerous file types, set up media-only channels, and enforce file size limits.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod attachments &lt;enabled&gt; [mediaonly] [block] [unblock] [action]</h4>
+                        <p>Configure attachment filtering. Add media-only channels (only images/videos allowed). Block
+                            specific file extensions (like exe, bat, scr) or unblock them. Action choices: Delete +
+                            Warn, Delete Only, or Warn Only.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - REGEX -->
+                <section class="doc-section reveal" id="promod-regex">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .22</p>
+                    <h2><span class="text-gradient">Regex Filters</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Create custom regex-based content
+                        filters. Match patterns in messages and take action automatically. Supports test mode for safe
+                        testing.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod regex &lt;action&gt; [name] [pattern] [reason] [testmode]</h4>
+                        <p>Manage regex filters. Actions: Add a filter (requires name + pattern), Remove a filter (by
+                            name), List all filters, or Enable/Disable the system. Test mode logs matches without taking
+                            action so you can fine-tune patterns.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - AUTOPURGE -->
+                <section class="doc-section reveal" id="promod-autopurge">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .23</p>
+                    <h2><span class="text-gradient">Auto-Purge</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Automatically clean up old messages in
+                        specified channels on a schedule. Great for bot-spam channels, temp channels, and keeping things
+                        tidy.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod autopurge &lt;action&gt; [channel] [maxage] [botsonly] [excludepinned]</h4>
+                        <p>Manage auto-purge. Actions: Add a channel (set max message age 1-336 hours, default 24),
+                            Remove a channel, List configured channels, or Enable/Disable. Options: only purge bot
+                            messages, skip pinned messages.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PRO AUTOMOD - VIEW & SETUP -->
+                <section class="doc-section reveal" id="promod-tools">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .24</p>
+                    <h2><span class="text-gradient">Pro Tools</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Utility commands for managing your Pro
+                        AutoMod configuration.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/promod view</h4>
+                        <p>View the full configuration of all Pro AutoMod modules in one embed. Shows enabled/disabled
+                            status and key settings for each module.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/promod setup</h4>
+                        <p>Launch the interactive setup guide for Pro AutoMod. Walks you through configuring each module
+                            step by step.</p>
+                        <span class="doc-perm">REQUIRES: ADMINISTRATOR • PRO</span>
+                    </div>
+                </section>
+
+                <!-- PREMIUM MANAGEMENT -->
+                <section class="doc-section reveal" id="premium">
+                    <p class="cyber-tag" style="margin-bottom: 0.5rem; color: var(--green);">PRO .25</p>
+                    <h2><span class="text-gradient">Premium Management</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Manage your Altair Pro subscription.
+                        Activate Pro on your server, move it between servers, or check your plan status.</p>
+
+                    <div class="doc-cmd glass">
+                        <h4>/premium activate</h4>
+                        <p>Activate your Pro subscription on the current server. Unlocks all Pro AutoMod modules and
+                            premium features.</p>
+                        <span class="doc-perm">REQUIRES: PRO SUBSCRIPTION</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/premium deactivate</h4>
+                        <p>Deactivate Pro from the current server so you can move it to a different one. Your
+                            subscription stays active.</p>
+                        <span class="doc-perm">REQUIRES: PRO SUBSCRIPTION</span>
+                    </div>
+                    <div class="doc-cmd glass">
+                        <h4>/premium status</h4>
+                        <p>Check the Pro plan status for the current server. Shows whether Pro is active, who activated
+                            it, and since when.</p>
+                        <span class="doc-perm">REQUIRES: NONE</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: 100px 4vw 160px; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="logo-box" style="margin: 0 auto 24px;"><img src="img/altair_logo_v5.png" alt="Altair"
+                style="width:100%;height:100%;object-fit:cover;"></div>
+        <h2 style="font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 40px;">Altair</h2>
+        <div style="display: flex; justify-content: center; gap: 32px; font-weight: 500;">
+            <a href="support.html" style="color: var(--text-secondary); transition: color 0.3s;">Support</a>
+            <a href="docs.html" style="color: var(--text-secondary); transition: color 0.3s;">Documentation</a>
+            <a href="tos.html" style="color: var(--text-secondary); transition: color 0.3s;">Terms</a>
+            <a href="privacy.html" style="color: var(--text-secondary); transition: color 0.3s;">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Fixed Floating Status Bar -->
+    <div class="status-strip">
+        <span style="display: flex; align-items: center;"><span class="status-dot"></span>SYS_OPERATIONAL</span>
+        <span class="status-optional">|</span>
+        <span class="status-optional">SSL_ENCRYPTED</span>
+        <span class="status-optional">|</span>
+        <span class="status-optional">AUTH_V2.0</span>
+        <span>BUILD 1.1.0</span>
+    </div>
+
+    
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
+

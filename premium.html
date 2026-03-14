@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium | Altair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <div class="logo-box"><img src="img/altair_logo_v5.png" alt="Altair"
+                    style="width:100%;height:100%;object-fit:cover;"></div>
+            Altair
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="features.html">Systems</a>
+            <a href="commands.html">Registry</a>
+            <a href="premium.html" class="active">Pro</a>
+        </div>
+        
+    </nav>
+
+    <header class="hero container" style="min-height: 50vh;">
+        <div class="hud-label reveal" style="margin-bottom: 2rem;">ACCESS.TIER</div>
+        <h1 class="hero-title reveal">Unlock <br><span class="text-gradient">Superpowers.</span></h1>
+        <p class="hero-subtitle reveal">Choose the plan that's right for your community.</p>
+    </header>
+
+    <main class="container">
+        <section class="section-padding" style="padding-top: 40px;">
+            <div class="bento-grid" style="justify-content: center; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+
+                <!-- Free Tier -->
+                <div class="glass bento-item reveal" style="padding: 60px 40px; display: flex; flex-direction: column;">
+                    <h3 class="section-title">Free <span class="text-gradient">Tier</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">Perfect for starting
+                        out</p>
+                    <div
+                        style="font-family: var(--font-mono); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 40px;">
+                        $0<span style="font-size: 1rem; color: var(--text-muted); margin-left: 4px;">/mo</span></div>
+
+                    <ul
+                        style="list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 60px; flex: 1;">
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i>
+                            Standard AutoMod</li>
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i> Basic
+                            XP System</li>
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i>
+                            Basic Economy System</li>
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i>
+                            Up to 5 Custom Commands</li>
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i>
+                            Up to 5 Role Rewards</li>
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i>
+                            Basic Starboard</li>
+                        <li class="hud-label" style="color: var(--text-secondary);"><i class="fas fa-check"></i>
+                            Giveaways (up to 5)</li>
+                    </ul>
+                    <a href="https://discord.com/api/oauth2/authorize?client_id=1422267745180979242&permissions=8&scope=bot%20applications.commands" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
+                </div>
+
+                <!-- Pro Monthly -->
+                <div class="glass bento-item reveal"
+                    style="padding: 60px 40px; display: flex; flex-direction: column; position: relative; border-color: var(--green-dim);">
+                    <div class="hud-label" style="position: absolute; top: 20px; left: 40px; color: var(--green); font-size: 0.7rem;">MOST_POPULAR</div>
+                    <h3 class="section-title">Altair <span class="text-green">Pro</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">For professional
+                        communities</p>
+                    <div
+                        style="font-family: var(--font-mono); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.05em; color: var(--green); margin-bottom: 40px;">
+                        $9.99<span style="font-size: 1rem; color: var(--text-muted); margin-left: 4px;">/mo</span></div>
+
+                    <ul
+                        style="list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 60px; flex: 1;">
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Advanced AI AutoMod & Regex Filters</li>
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Global Rank & Casino System</li>
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Unlimited Custom Commands</li>
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Real-time Server Analytics</li>
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Anti-Raid & Phishing Protection</li>
+                    </ul>
+                    <a href="wip.html" class="btn btn-cyber" style="width: 100%; justify-content: center;">Go Premium</a>
+                </div>
+
+                <!-- Pro Annual -->
+                <div class="glass bento-item reveal"
+                    style="padding: 60px 40px; display: flex; flex-direction: column; border-color: rgba(200,255,0,0.3); background: linear-gradient(135deg, rgba(200,255,0,0.02) 0%, rgba(200,255,0,0.08) 100%); position: relative;">
+                    <div
+                        style="position: absolute; top: 24px; right: 24px; background: var(--green); color: #000; padding: 4px 14px; border-radius: 100px; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;">
+                        SAVE 17%</div>
+                    <h3 class="section-title">Pro <span class="text-green">Annual</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px;">Best value for your
+                        server</p>
+                    <div style="margin-bottom: 40px;">
+                        <div
+                            style="font-family: var(--font-mono); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.05em; color: var(--green);">
+                            $99.99<span style="font-size: 1rem; color: var(--text-muted); margin-left: 4px;">/yr</span>
+                        </div>
+                        <div
+                            style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+                            <s>$119.88</s> <span style="color: var(--green);">you save $19.89</span>
+                        </div>
+                    </div>
+
+                    <ul
+                        style="list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 60px; flex: 1;">
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Everything in Pro</li>
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Priority Support</li>
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Early Access to New Features</li>
+
+                        <li class="hud-label" style="color: var(--text-primary);"><i
+                                class="fas fa-check text-green"></i> Billed Annually</li>
+                    </ul>
+                    <a href="wip.html" class="btn btn-cyber" style="width: 100%; justify-content: center;">Go Annual</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 100px 4vw 160px; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="logo-box" style="margin: 0 auto 24px;"><img src="img/altair_logo_v5.png" alt="Altair"
+                style="width:100%;height:100%;object-fit:cover;"></div>
+        <h2 style="font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 40px;">Altair</h2>
+        <div style="display: flex; justify-content: center; gap: 32px; font-weight: 500;">
+            <a href="support.html" style="color: var(--text-secondary); transition: color 0.3s;">Support</a>
+            <a href="docs.html" style="color: var(--text-secondary); transition: color 0.3s;">Documentation</a>
+            <a href="tos.html" style="color: var(--text-secondary); transition: color 0.3s;">Terms</a>
+            <a href="privacy.html" style="color: var(--text-secondary); transition: color 0.3s;">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Fixed Floating Status Bar -->
+    <div class="status-strip">
+        <span style="display: flex; align-items: center;"><span class="status-dot"></span>SYS_OPERATIONAL</span>
+        <span class="status-optional">|</span>
+        <span class="status-optional">SSL_ENCRYPTED</span>
+        <span class="status-optional">|</span>
+        <span class="status-optional">AUTH_V2.0</span>
+        <span>BUILD 1.1.0</span>
+    </div>
+
+    
+    <script>
+        // Entrance animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
+

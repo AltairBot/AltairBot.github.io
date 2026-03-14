@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work in Progress | Altair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .wip-container {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 120px;
+            padding-bottom: 40px;
+        }
+
+        .wip-box {
+            max-width: 600px;
+            padding: 60px 40px;
+            border-color: rgba(200, 255, 0, 0.3);
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.02) 0%, rgba(200, 255, 0, 0.08) 100%);
+        }
+
+        .wip-icon {
+            font-size: 4rem;
+            color: var(--green);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(200, 255, 0, 0.3);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--glass-border);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 20px 0 30px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <div class="logo-box"><img src="img/altair_logo_v5.png" alt="Altair"
+                    style="width:100%;height:100%;object-fit:cover;"></div>
+            Altair
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="features.html">Systems</a>
+            <a href="commands.html">Registry</a>
+            <a href="premium.html">Pro</a>
+        </div>
+    </nav>
+
+    <main class="container wip-container">
+        <div class="glass wip-box reveal">
+            <div class="wip-icon">
+                <i class="fas fa-hammer"></i>
+            </div>
+            <div class="hud-label" style="margin-bottom: 1rem; color: var(--green);">UNDER_CONSTRUCTION</div>
+            <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Work in <span class="text-gradient">Progress.</span></h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">
+                Premium checkout is currently undergoing maintenance and security upgrades to ensure a safe experience. The Altair Pro tier will be available for purchase soon. Thank you for your patience!
+            </p>
+            
+            <a href="premium.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Return to Pro Plans</a>
+        </div>
+    </main>
+
+    <footer style="padding: 100px 4vw 60px; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="logo-box" style="margin: 0 auto 24px;"><img src="img/altair_logo_v5.png" alt="Altair"
+                style="width:100%;height:100%;object-fit:cover;"></div>
+        <h2 style="font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 40px;">Altair</h2>
+        <div style="display: flex; justify-content: center; gap: 32px; font-weight: 500;">
+            <a href="support.html" style="color: var(--text-secondary); transition: color 0.3s;">Support</a>
+            <a href="docs.html" style="color: var(--text-secondary); transition: color 0.3s;">Documentation</a>
+            <a href="tos.html" style="color: var(--text-secondary); transition: color 0.3s;">Terms</a>
+            <a href="privacy.html" style="color: var(--text-secondary); transition: color 0.3s;">Privacy</a>
+        </div>
+    </footer>
+
+    
+    <script>
+        document.querySelector('.reveal').classList.add('active');
+    </script>
+</body>
+
+</html>

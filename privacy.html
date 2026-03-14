@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Altair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        .legal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-section h3 {
+            font-size: 1.1rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .legal-section p,
+        .legal-section li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .legal-section ul li::before {
+            content: '▸ ';
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .data-table th {
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .data-table td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <div class="logo-box"><img src="img/altair_logo_v5.png" alt="Altair" style="width:100%;height:100%;object-fit:cover;"></div>
+            Altair
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="features.html">Systems</a>
+            <a href="commands.html">Registry</a>
+            <a href="premium.html">Pro</a>
+        </div>
+        
+    </nav>
+
+    <header class="hero container" style="min-height: 50vh;">
+        <div class="hud-label reveal" style="margin-bottom: 2rem;">DATA_PROTOCOL</div>
+        <h1 class="hero-title reveal">Privacy <span class="text-gradient">Policy.</span></h1>
+        <p class="hero-subtitle reveal">Last Updated: February 27, 2026 &mdash; Effective: February 19, 2024</p>
+    </header>
+
+    <main class="container">
+        <div class="legal-container">
+            <div class="glass reveal" style="padding: 3rem;">
+
+                <div class="legal-section">
+                    <h3>1. INTRODUCTION</h3>
+                    <p>Altair ("we", "our", or "us") is a Discord bot designed for server moderation, automation, and
+                        community management. This Privacy Policy explains how we collect, use, store, and protect your
+                        information when you use Altair.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h3>2. INFORMATION WE COLLECT</h3>
+                    <p><strong style="color: var(--text-primary);">Automatically Collected:</strong></p>
+                    <ul>
+                        <li>Discord User ID, Username, Avatar, Discriminator</li>
+                        <li>Server ID, Channel IDs, Role information</li>
+                        <li>Message content (for AutoMod, logging, and moderation)</li>
+                        <li>Timestamps of user actions (joins, leaves, violations)</li>
+                    </ul>
+                    <p><strong style="color: var(--text-primary);">Stored Data:</strong></p>
+                    <ul>
+                        <li>Strikes/Warnings — user violations and moderation history</li>
+                        <li>Message Logs — deleted/edited messages (if configured)</li>
+                        <li>Welcome Config — server-specific settings</li>
+                        <li>AutoMod Config — filter lists, thresholds, ignored channels/roles</li>
+                        <li>Level Data — XP, level, and rank information</li>
+                        <li>Ticket Data — support ticket transcripts and metadata</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h3>3. HOW WE USE YOUR INFORMATION</h3>
+                    <ul>
+                        <li><strong style="color: var(--text-primary);">Moderation</strong> — Enforcing server rules via
+                            AutoMod (strikes, timeouts, kicks, bans)</li>
+                        <li><strong style="color: var(--text-primary);">Logging</strong> — Tracking message
+                            edits/deletions for moderation purposes</li>
+                        <li><strong style="color: var(--text-primary);">Welcome System</strong> — Greeting new members
+                            with custom messages</li>
+                        <li><strong style="color: var(--text-primary);">Security</strong> — Preventing spam, raids, and
+                            malicious content</li>
+                        <li><strong style="color: var(--text-primary);">Leveling</strong> — Tracking engagement and
+                            awarding XP/role rewards</li>
+                        <li><strong style="color: var(--text-primary);">Analytics</strong> — Anonymous statistics on bot
+                            usage and performance</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h3>4. DATA STORAGE & SECURITY</h3>
+                    <ul>
+                        <li>All data is stored <strong style="color: var(--text-primary);">locally</strong> on the
+                            server hosting the bot</li>
+                        <li>Data is <strong style="color: var(--text-primary);">NOT</strong> shared with third parties
+                            or external services</li>
+                        <li>No cloud storage, no data selling, no advertising</li>
+                        <li>JSON database files with restricted file permissions</li>
+                        <li>Access limited to bot administrators only</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h3>5. DATA RETENTION</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Retention</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Strikes & Warnings</td>
+                                <td>Permanent until manually reset by admin</td>
+                            </tr>
+                            <tr>
+                                <td>Message Logs</td>
+                                <td>30 days automatic rotation</td>
+                            </tr>
+                            <tr>
+                                <td>Config Settings</td>
+                                <td>Until bot removal from server</td>
+                            </tr>
+                            <tr>
+                                <td>User Profiles</td>
+                                <td>Cached temporarily, refreshed on demand</td>
+                            </tr>
+                            <tr>
+                                <td>Level/XP Data</td>
+                                <td>Persistent until admin reset</td>
+                            </tr>
+                            <tr>
+                                <td>Ticket Transcripts</td>
+                                <td>Until manually deleted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>You may request data deletion at any time (see Section 8).</p>
+                </div>
+
+                <div class="legal-section">
+                    <h3>6. YOUR RIGHTS</h3>
+                    <ul>
+                        <li><strong style="color: var(--text-primary);">Right to Access</strong> — View your stored data
+                            via <code
+                                style="color: var(--accent-primary); font-family: var(--font-mono);">/automod user</code>
+                        </li>
+                        <li><strong style="color: var(--text-primary);">Right to Rectification</strong> — Request
+                            correction of inaccurate data</li>
+                        <li><strong style="color: var(--text-primary);">Right to Erasure</strong> — Request complete
+                            deletion of your data</li>
+                        <li><strong style="color: var(--text-primary);">Right to Restrict</strong> — Opt-out of specific
+                            data collection</li>
+                        <li><strong style="color: var(--text-primary);">Right to Portability</strong> — Export your data
+                            in readable format</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h3>7. SERVER ADMINISTRATOR CONTROLS</h3>
+                    <p>Server owners and admins with Administrator permission can:</p>
+                    <ul>
+                        <li>Configure what data is collected (toggle modules on/off)</li>
+                        <li>Set data retention periods</li>
+                        <li>Delete user data via <code
+                                style="color: var(--accent-primary); font-family: var(--font-mono);">/automod reset</code>
+                        </li>
+                        <li>Export server data for backup</li>
+                        <li>Disable data collection entirely via <code
+                                style="color: var(--accent-primary); font-family: var(--font-mono);">/automod toggle</code>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h3>8. CONTACT & DATA REQUESTS</h3>
+                    <p>For privacy inquiries or data requests:</p>
+                    <ul>
+                        <li>Use <code
+                                style="color: var(--accent-primary); font-family: var(--font-mono);">/privacy</code> in
+                            Discord for self-service options</li>
+                        <li><strong>Email (Data Protection Officer):</strong> altairdiscordbot@gmail.com</li>
+                        <li>Join the <a href="support.html" style="color: var(--accent-primary);">Support Server</a> for
+                            direct assistance</li>
+                        <li>Use <code style="color: var(--accent-primary); font-family: var(--font-mono);">/bug</code>
+                            to contact the development team</li>
+                        <li>Deletion requests are typically processed within 48 hours</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section" style="margin-bottom: 0;">
+                    <h3>9. POLICY CHANGES</h3>
+                    <p>We may update this Privacy Policy periodically. Changes will be posted on this page, announced in
+                        the support server, and dated at the top. Continued use after changes constitutes acceptance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: 100px 4vw 160px; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="logo-box" style="margin: 0 auto 24px;"><img src="img/altair_logo_v5.png" alt="Altair" style="width:100%;height:100%;object-fit:cover;"></div>
+        <h2 style="font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 40px;">Altair</h2>
+        <div style="display: flex; justify-content: center; gap: 32px; font-weight: 500;">
+            <a href="support.html" style="color: var(--text-secondary); transition: color 0.3s;">Support</a>
+            <a href="docs.html" style="color: var(--text-secondary); transition: color 0.3s;">Documentation</a>
+            <a href="tos.html" style="color: var(--text-secondary); transition: color 0.3s;">Terms</a>
+            <a href="privacy.html" style="color: var(--text-secondary); transition: color 0.3s;">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Fixed Floating Status Bar -->
+    <div class="status-strip">
+        <span style="display: flex; align-items: center;"><span class="status-dot"></span>SYS_OPERATIONAL</span>
+        <span class="status-optional">|</span>
+        <span class="status-optional">SSL_ENCRYPTED</span>
+        <span class="status-optional">|</span>
+        <span class="status-optional">AUTH_V2.0</span>
+        <span>BUILD 1.1.0</span>
+    </div>
+
+    
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
+
+
+
+
+
