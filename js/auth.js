@@ -25,7 +25,7 @@ const Auth = {
                 e.stopPropagation();
                 navLinks.classList.toggle('mobile-active');
 
-                // Change icon
+                
                 const icon = toggle.querySelector('i');
                 if (navLinks.classList.contains('mobile-active')) {
                     icon.className = 'fas fa-times';
@@ -34,7 +34,7 @@ const Auth = {
                 }
             });
 
-            // Close menu when clicking a link
+            
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('mobile-active');
@@ -42,7 +42,7 @@ const Auth = {
                 });
             });
 
-            // Close menu when clicking outside
+            
             document.addEventListener('click', (e) => {
                 if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
                     navLinks.classList.remove('mobile-active');
